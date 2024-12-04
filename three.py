@@ -8,6 +8,27 @@ def advent_three_one():
         multi = [int(x[0]) * int(x[1]) for x in results]
         return sum(multi)
 
+def avent_three_one_two():
+    caluclate = True
+    result = 0
+    pattern = r"((mul\(\d+\,\d+\))|(do\(\))|(don\'t\(\)))"
+    with open('three.txt', 'r') as three:
+        test = three.read()
+        results = re.findall(pattern, test)
+        for match in results:
+            match_test = match[0]
+            if match_test == "don't()":
+                caluclate = False
+                continue
+            if match_test == "do()":
+                caluclate = True
+                continue
+            if match_test.startswith("mul(") and caluclate:
+                pre_result =  match_test[4:len(match_test) - 1].split(',')
+                result += int(pre_result[0]) * int(pre_result[1])
+            
+    return result
+
 # def advent_three_one_helper(case: str):
 #     result = 0
 #     pref = 'mul('
