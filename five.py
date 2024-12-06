@@ -18,7 +18,7 @@ def build_list():
             list_val.append(list(map(int, element.strip().split(','))))
         return list_val
 
-def check_list():
+def advent_five_one():
     total = 0
     test_map = build_holder()
     value_list = build_list()
@@ -90,7 +90,7 @@ def fix_list(broken: list) -> list:
     return broken
 
 
-def valid_mid_sum():
+def advent_five_two():
     value_list = build_list()
     total = 0
     for sublist in value_list:
@@ -106,4 +106,5 @@ def valid_mid_sum():
                     continue
     return total
 if __name__ == "__main__":     
-   print( valid_mid_sum())
+   print(advent_five_one())
+   print(advent_five_two())
